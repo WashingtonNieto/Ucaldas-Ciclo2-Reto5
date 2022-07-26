@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.PosicionController;
 import controller.TorneoController;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
@@ -11,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Equipo;
 import model.Municipio;
+import model.Posicion;
 
 /**
  *
@@ -63,6 +65,17 @@ public class FrmTorneo extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblEquipos = new javax.swing.JTable();
         jpPosicion = new javax.swing.JPanel();
+        jpMunicipo1 = new javax.swing.JPanel();
+        lbIdPosicion = new javax.swing.JLabel();
+        lbNombrePosicion = new javax.swing.JLabel();
+        txtIdPosicion = new javax.swing.JTextField();
+        txtNombrePosicion = new javax.swing.JTextField();
+        btnCrearPosicion = new javax.swing.JButton();
+        btnBuscarPosicion = new javax.swing.JButton();
+        btnActualizarPosicion = new javax.swing.JButton();
+        btnEliminarPosicion = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblPosiciones = new javax.swing.JTable();
         jpJugador = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -147,7 +160,7 @@ public class FrmTorneo extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpMunicipoLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(btnBuscarMunicipio)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jpMunicipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jpMunicipoLayout.createSequentialGroup()
                     .addGap(43, 43, 43)
@@ -174,7 +187,7 @@ public class FrmTorneo extends javax.swing.JFrame {
                 .addGroup(jpMunicipoLayout.createSequentialGroup()
                     .addGap(97, 97, 97)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(123, Short.MAX_VALUE)))
+                    .addContainerGap(121, Short.MAX_VALUE)))
         );
 
         jpTorneo.addTab("Municipio", jpMunicipo);
@@ -270,7 +283,7 @@ public class FrmTorneo extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(cbxMunicipios, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane2)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpEquipoLayout.setVerticalGroup(
             jpEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,20 +310,131 @@ public class FrmTorneo extends javax.swing.JFrame {
                     .addComponent(cbxMunicipios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jpTorneo.addTab("Equipo", jpEquipo);
+
+        lbIdPosicion.setText("Id Posicion");
+
+        lbNombrePosicion.setText("Nombre Posicion");
+
+        btnCrearPosicion.setText("Crear");
+        btnCrearPosicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearPosicionActionPerformed(evt);
+            }
+        });
+
+        btnBuscarPosicion.setText("Buscar");
+        btnBuscarPosicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPosicionActionPerformed(evt);
+            }
+        });
+
+        btnActualizarPosicion.setText("Actualizar");
+        btnActualizarPosicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarPosicionActionPerformed(evt);
+            }
+        });
+
+        btnEliminarPosicion.setText("Eliminar");
+        btnEliminarPosicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarPosicionActionPerformed(evt);
+            }
+        });
+
+        tblPosiciones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tblPosiciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPosicionesMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tblPosiciones);
+
+        javax.swing.GroupLayout jpMunicipo1Layout = new javax.swing.GroupLayout(jpMunicipo1);
+        jpMunicipo1.setLayout(jpMunicipo1Layout);
+        jpMunicipo1Layout.setHorizontalGroup(
+            jpMunicipo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMunicipo1Layout.createSequentialGroup()
+                .addGroup(jpMunicipo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpMunicipo1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(jpMunicipo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpMunicipo1Layout.createSequentialGroup()
+                                .addComponent(lbIdPosicion, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(jpMunicipo1Layout.createSequentialGroup()
+                                .addComponent(lbNombrePosicion)
+                                .addGap(6, 6, 6)))
+                        .addGroup(jpMunicipo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtNombrePosicion, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                            .addComponent(txtIdPosicion))
+                        .addGap(18, 18, 18)
+                        .addGroup(jpMunicipo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCrearPosicion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnActualizarPosicion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jpMunicipo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpMunicipo1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEliminarPosicion))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpMunicipo1Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(btnBuscarPosicion))))
+                    .addGroup(jpMunicipo1Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jpMunicipo1Layout.setVerticalGroup(
+            jpMunicipo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMunicipo1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jpMunicipo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbIdPosicion)
+                    .addComponent(txtIdPosicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCrearPosicion)
+                    .addComponent(btnBuscarPosicion))
+                .addGap(18, 18, 18)
+                .addGroup(jpMunicipo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbNombrePosicion)
+                    .addComponent(txtNombrePosicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizarPosicion)
+                    .addComponent(btnEliminarPosicion))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(118, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jpPosicionLayout = new javax.swing.GroupLayout(jpPosicion);
         jpPosicion.setLayout(jpPosicionLayout);
         jpPosicionLayout.setHorizontalGroup(
             jpPosicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGap(0, 584, Short.MAX_VALUE)
+            .addGroup(jpPosicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpPosicionLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jpMunicipo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jpPosicionLayout.setVerticalGroup(
             jpPosicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGap(0, 399, Short.MAX_VALUE)
+            .addGroup(jpPosicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpPosicionLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jpMunicipo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jpTorneo.addTab("Posicion", jpPosicion);
@@ -323,7 +447,7 @@ public class FrmTorneo extends javax.swing.JFrame {
         );
         jpJugadorLayout.setVerticalGroup(
             jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGap(0, 393, Short.MAX_VALUE)
         );
 
         jpTorneo.addTab("Jugador", jpJugador);
@@ -349,11 +473,13 @@ public class FrmTorneo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     TorneoController controlador = new TorneoController();
+    PosicionController controladorPosicion = new PosicionController();
     
     private void formWindowOpened(java.awt.event.WindowEvent evt){
         llenarTablaMunicipios();
         llenarComboMunicipios();
         llenarTablaEquipos();
+        llenarTablaPosiciones();
     }
     
     private void tblMunicipiosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMunicipiosMouseClicked
@@ -463,6 +589,7 @@ public class FrmTorneo extends javax.swing.JFrame {
         llenarTablaMunicipios();
         llenarComboMunicipios();
         llenarTablaEquipos();
+        llenarTablaPosiciones();
 
 
     }//GEN-LAST:event_jpTorneoMouseClicked
@@ -516,6 +643,67 @@ public class FrmTorneo extends javax.swing.JFrame {
         llenarTablaEquipos();
         llenarComboMunicipios();
     }//GEN-LAST:event_btnEliminarEquipoActionPerformed
+
+    private void btnCrearPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPosicionActionPerformed
+        // TODO add your handling code here:
+        String nombre = txtNombrePosicion.getText();
+        boolean seInserto = controladorPosicion.insertPosicion(nombre);
+        if (seInserto){
+            JOptionPane.showMessageDialog(this,"La posicion se inserto correctamente");
+        }else{
+            JOptionPane.showMessageDialog(this,"Hubo un error al insertar la posicion");
+        }
+        llenarTablaPosiciones(); 
+        llenarComboPosiciones();
+    }//GEN-LAST:event_btnCrearPosicionActionPerformed
+
+    private void btnBuscarPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPosicionActionPerformed
+        // TODO add your handling code here:
+        int id = Integer.parseInt(txtIdPosicion.getText());
+        Posicion posicion = controladorPosicion.findPosicion(id);
+        if(posicion == null){
+            JOptionPane.showMessageDialog(this, "La posicion no fue encontrada!");
+        }else{
+            txtNombrePosicion.setText(posicion.nombre);
+        }       
+    }//GEN-LAST:event_btnBuscarPosicionActionPerformed
+
+    private void btnActualizarPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarPosicionActionPerformed
+        // TODO add your handling code here:
+        int id = Integer.parseInt(txtIdPosicion.getText());
+        String nombre = txtNombrePosicion.getText();
+        boolean seActualizo = controladorPosicion.updatePosicion(id, nombre);
+        if (seActualizo){
+            JOptionPane.showMessageDialog(this, "La posición se actualizó!");
+        }else{
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error la posicion no se actualizó!");
+        }
+        llenarTablaPosiciones(); 
+        llenarComboPosiciones();        
+    }//GEN-LAST:event_btnActualizarPosicionActionPerformed
+
+    private void btnEliminarPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPosicionActionPerformed
+        // TODO add your handling code here:
+        int id = Integer.parseInt(txtIdPosicion.getText());
+        if (controladorPosicion.deletePosicion(id)){
+            JOptionPane.showMessageDialog(this, "La posición se eliminó!");
+        }else{
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error la posición no se eliminó!");
+        }
+        llenarTablaPosiciones();           
+        llenarComboPosiciones();        
+        
+    }//GEN-LAST:event_btnEliminarPosicionActionPerformed
+
+    private void tblPosicionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPosicionesMouseClicked
+        // TODO add your handling code here:
+        int fila = tblPosiciones.getSelectedRow();
+        int id = (int) tblPosiciones.getValueAt(fila, 0);
+        Posicion posicion = controladorPosicion.findPosicion(id);
+        txtIdPosicion.setText("" + posicion.id);
+        txtNombrePosicion.setText(posicion.nombre);
+        llenarTablaPosiciones();         
+    }//GEN-LAST:event_tblPosicionesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -571,15 +759,7 @@ public class FrmTorneo extends javax.swing.JFrame {
         tblMunicipios.setModel(modelo);
     }
     
-    public void llenarComboMunicipios(){
-        ArrayList<Municipio> listaMunicipios = controlador.SelectMunicipios();
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        for (Municipio municipio : listaMunicipios){
-            modelo.addElement(municipio);
-        }
-        cbxMunicipios.setModel(modelo);
-    }
-
+      
     public void llenarTablaEquipos(){
         ArrayList<Equipo> listaEquipos = controlador.SelectEquipos();
         int filas = listaEquipos.size();
@@ -598,37 +778,79 @@ public class FrmTorneo extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel(datos, encabezados);
         tblEquipos.setModel(modelo);
     }
-
+    public void llenarTablaPosiciones(){
+        ArrayList<Posicion> listaPosiciones = controladorPosicion.SelectPosicion();
+        int filas = listaPosiciones.size();
+        int columnas = 2;
+        Object[][] datos = new Object[filas][columnas];
+        int i = 0;
+        for (Posicion posicion : listaPosiciones){
+            datos[i][0] = posicion.id;
+            datos[i][1] = posicion.nombre;
+            i++;
+        }
+        Object[] encabezados = {"Id", "Nombre"};
+        DefaultTableModel modelo = new DefaultTableModel(datos, encabezados);
+        tblPosiciones.setModel(modelo);
+    }
     
+    public void llenarComboMunicipios(){
+        ArrayList<Municipio> listaMunicipios = controlador.SelectMunicipios();
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        for (Municipio municipio : listaMunicipios){
+            modelo.addElement(municipio);
+        }
+        cbxMunicipios.setModel(modelo);
+    }
+
+    public void llenarComboPosiciones(){
+        ArrayList<Posicion> listaPosiciones = controladorPosicion.SelectPosicion();
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        for (Posicion posicion : listaPosiciones){
+            modelo.addElement(posicion);
+        }
+        cbxMunicipios.setModel(modelo);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarEquipo;
     private javax.swing.JButton btnActualizarMunicipio;
+    private javax.swing.JButton btnActualizarPosicion;
     private javax.swing.JButton btnBuscarEquipo;
     private javax.swing.JButton btnBuscarMunicipio;
+    private javax.swing.JButton btnBuscarPosicion;
     private javax.swing.JButton btnCrearEquipo;
     private javax.swing.JButton btnCrearMunicipio;
+    private javax.swing.JButton btnCrearPosicion;
     private javax.swing.JButton btnEliminarEquipo;
     private javax.swing.JButton btnEliminarMunicipio;
+    private javax.swing.JButton btnEliminarPosicion;
     private javax.swing.JComboBox<String> cbxMunicipios;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPanel jpEquipo;
     private javax.swing.JPanel jpJugador;
     private javax.swing.JPanel jpMunicipo;
+    private javax.swing.JPanel jpMunicipo1;
     private javax.swing.JPanel jpPosicion;
     private javax.swing.JTabbedPane jpTorneo;
     private javax.swing.JLabel lbDtEquipo;
     private javax.swing.JLabel lbIdEquipo;
     private javax.swing.JLabel lbIdMunicipio;
+    private javax.swing.JLabel lbIdPosicion;
     private javax.swing.JLabel lbMunicipioEquipo;
     private javax.swing.JLabel lbNombreEquipo;
     private javax.swing.JLabel lbNombreMunicipio;
+    private javax.swing.JLabel lbNombrePosicion;
     private javax.swing.JTable tblEquipos;
     private javax.swing.JTable tblMunicipios;
+    private javax.swing.JTable tblPosiciones;
     private javax.swing.JTextField txtDtEquipo;
     private javax.swing.JTextField txtIdEquipo;
     private javax.swing.JTextField txtIdMunicipio;
+    private javax.swing.JTextField txtIdPosicion;
     private javax.swing.JTextField txtNombreEquipo;
     private javax.swing.JTextField txtNombreMunicipio;
+    private javax.swing.JTextField txtNombrePosicion;
     // End of variables declaration//GEN-END:variables
 }
