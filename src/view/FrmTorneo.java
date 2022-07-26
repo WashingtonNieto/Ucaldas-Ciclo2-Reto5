@@ -495,6 +495,12 @@ public class FrmTorneo extends javax.swing.JFrame {
 
         lbEquipoJugador.setText("Equipo");
 
+        cbxEquipoJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxEquipoJugadorActionPerformed(evt);
+            }
+        });
+
         lbPosicionJugador.setText("Posicion");
 
         lbNumeroJugador.setText("Numero Jugador");
@@ -610,6 +616,8 @@ public class FrmTorneo extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt){
         llenarTablaMunicipios();
         llenarComboMunicipios();
+        llenarComboEquipos();
+        llenarComboPosiciones();
         llenarTablaEquipos();
         llenarTablaPosiciones();
     }
@@ -907,6 +915,10 @@ public class FrmTorneo extends javax.swing.JFrame {
         llenarTablaJugadores();              
     }//GEN-LAST:event_tblJugadoresMouseClicked
 
+    private void cbxEquipoJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEquipoJugadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxEquipoJugadorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1019,29 +1031,29 @@ public class FrmTorneo extends javax.swing.JFrame {
     
     public void llenarComboMunicipios(){
         ArrayList<Municipio> listaMunicipios = controlador.SelectMunicipios();
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        DefaultComboBoxModel modeloMunicipios = new DefaultComboBoxModel();
         for (Municipio municipio : listaMunicipios){
-            modelo.addElement(municipio);
+            modeloMunicipios.addElement(municipio);
         }
-        cbxMunicipios.setModel(modelo);
+        cbxMunicipios.setModel(modeloMunicipios);
     }
 
     public void llenarComboEquipos(){
         ArrayList<Equipo> listaEquipos = controlador.SelectEquipos();
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        DefaultComboBoxModel modeloEquipos = new DefaultComboBoxModel();
         for (Equipo equipo : listaEquipos){
-            modelo.addElement(equipo);
+            modeloEquipos.addElement(equipo);
         }
-        cbxMunicipios.setModel(modelo);
+        cbxEquipoJugador.setModel(modeloEquipos);
     }
         
     public void llenarComboPosiciones(){
         ArrayList<Posicion> listaPosiciones = posicionController.SelectPosicion();
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        DefaultComboBoxModel modeloPosiciones = new DefaultComboBoxModel();
         for (Posicion posicion : listaPosiciones){
-            modelo.addElement(posicion);
+            modeloPosiciones.addElement(posicion);
         }
-        cbxMunicipios.setModel(modelo);
+        cbxPosicionJugador.setModel(modeloPosiciones);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarEquipo;
