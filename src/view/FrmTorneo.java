@@ -4,13 +4,19 @@
  */
 package view;
 
+import controller.JugadorController;
 import controller.PosicionController;
 import controller.TorneoController;
+
+
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
+
 import model.Equipo;
+import model.Jugador;
 import model.Municipio;
 import model.Posicion;
 
@@ -77,6 +83,22 @@ public class FrmTorneo extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tblPosiciones = new javax.swing.JTable();
         jpJugador = new javax.swing.JPanel();
+        lbIdJugador = new javax.swing.JLabel();
+        txtIdJugador = new javax.swing.JTextField();
+        btnCrearJugador = new javax.swing.JButton();
+        btnBuscarJugador = new javax.swing.JButton();
+        lbNombreJugador = new javax.swing.JLabel();
+        txtNombreJugador = new javax.swing.JTextField();
+        btnActualizarJugador = new javax.swing.JButton();
+        btnEliminarJugador = new javax.swing.JButton();
+        lbEquipoJugador = new javax.swing.JLabel();
+        cbxEquipoJugador = new javax.swing.JComboBox<>();
+        lbPosicionJugador = new javax.swing.JLabel();
+        cbxPosicionJugador = new javax.swing.JComboBox<>();
+        lbNumeroJugador = new javax.swing.JLabel();
+        txtNumeroJugador = new javax.swing.JTextField();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblJugadores = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -439,15 +461,124 @@ public class FrmTorneo extends javax.swing.JFrame {
 
         jpTorneo.addTab("Posicion", jpPosicion);
 
+        lbIdJugador.setText("Id Jugador");
+
+        btnCrearJugador.setText("Crear");
+        btnCrearJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearJugadorActionPerformed(evt);
+            }
+        });
+
+        btnBuscarJugador.setText("Buscar");
+        btnBuscarJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarJugadorActionPerformed(evt);
+            }
+        });
+
+        lbNombreJugador.setText("Nombre Jugador");
+
+        btnActualizarJugador.setText("Actualizar");
+        btnActualizarJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarJugadorActionPerformed(evt);
+            }
+        });
+
+        btnEliminarJugador.setText("Eliminar");
+        btnEliminarJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarJugadorActionPerformed(evt);
+            }
+        });
+
+        lbEquipoJugador.setText("Equipo");
+
+        lbPosicionJugador.setText("Posicion");
+
+        lbNumeroJugador.setText("Numero Jugador");
+
+        tblJugadores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tblJugadores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblJugadoresMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tblJugadores);
+
         javax.swing.GroupLayout jpJugadorLayout = new javax.swing.GroupLayout(jpJugador);
         jpJugador.setLayout(jpJugadorLayout);
         jpJugadorLayout.setHorizontalGroup(
             jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGroup(jpJugadorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpJugadorLayout.createSequentialGroup()
+                        .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpJugadorLayout.createSequentialGroup()
+                                .addComponent(lbNumeroJugador)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNumeroJugador))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpJugadorLayout.createSequentialGroup()
+                                .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbIdJugador)
+                                    .addComponent(lbNombreJugador)
+                                    .addComponent(lbEquipoJugador)
+                                    .addComponent(lbPosicionJugador))
+                                .addGap(18, 18, 18)
+                                .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtIdJugador, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                    .addComponent(txtNombreJugador, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                    .addComponent(cbxEquipoJugador, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbxPosicionJugador, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(45, 45, 45)
+                        .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnActualizarJugador)
+                            .addComponent(btnCrearJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnEliminarJugador)
+                            .addComponent(btnBuscarJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         jpJugadorLayout.setVerticalGroup(
             jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 393, Short.MAX_VALUE)
+            .addGroup(jpJugadorLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbIdJugador)
+                    .addComponent(txtIdJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCrearJugador)
+                    .addComponent(btnBuscarJugador))
+                .addGap(18, 18, 18)
+                .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbNombreJugador)
+                    .addComponent(txtNombreJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizarJugador)
+                    .addComponent(btnEliminarJugador))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbNumeroJugador)
+                    .addComponent(txtNumeroJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbEquipoJugador)
+                    .addComponent(cbxEquipoJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbPosicionJugador)
+                    .addComponent(cbxPosicionJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jpTorneo.addTab("Jugador", jpJugador);
@@ -473,7 +604,8 @@ public class FrmTorneo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     TorneoController controlador = new TorneoController();
-    PosicionController controladorPosicion = new PosicionController();
+    PosicionController posicionController = new PosicionController();
+    JugadorController jugadorController = new JugadorController();
     
     private void formWindowOpened(java.awt.event.WindowEvent evt){
         llenarTablaMunicipios();
@@ -590,6 +722,7 @@ public class FrmTorneo extends javax.swing.JFrame {
         llenarComboMunicipios();
         llenarTablaEquipos();
         llenarTablaPosiciones();
+        llenarTablaJugadores();
 
 
     }//GEN-LAST:event_jpTorneoMouseClicked
@@ -647,7 +780,7 @@ public class FrmTorneo extends javax.swing.JFrame {
     private void btnCrearPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPosicionActionPerformed
         // TODO add your handling code here:
         String nombre = txtNombrePosicion.getText();
-        boolean seInserto = controladorPosicion.insertPosicion(nombre);
+        boolean seInserto = posicionController.insertPosicion(nombre);
         if (seInserto){
             JOptionPane.showMessageDialog(this,"La posicion se inserto correctamente");
         }else{
@@ -660,7 +793,7 @@ public class FrmTorneo extends javax.swing.JFrame {
     private void btnBuscarPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPosicionActionPerformed
         // TODO add your handling code here:
         int id = Integer.parseInt(txtIdPosicion.getText());
-        Posicion posicion = controladorPosicion.findPosicion(id);
+        Posicion posicion = posicionController.findPosicion(id);
         if(posicion == null){
             JOptionPane.showMessageDialog(this, "La posicion no fue encontrada!");
         }else{
@@ -672,7 +805,7 @@ public class FrmTorneo extends javax.swing.JFrame {
         // TODO add your handling code here:
         int id = Integer.parseInt(txtIdPosicion.getText());
         String nombre = txtNombrePosicion.getText();
-        boolean seActualizo = controladorPosicion.updatePosicion(id, nombre);
+        boolean seActualizo = posicionController.updatePosicion(id, nombre);
         if (seActualizo){
             JOptionPane.showMessageDialog(this, "La posición se actualizó!");
         }else{
@@ -685,7 +818,7 @@ public class FrmTorneo extends javax.swing.JFrame {
     private void btnEliminarPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPosicionActionPerformed
         // TODO add your handling code here:
         int id = Integer.parseInt(txtIdPosicion.getText());
-        if (controladorPosicion.deletePosicion(id)){
+        if (posicionController.deletePosicion(id)){
             JOptionPane.showMessageDialog(this, "La posición se eliminó!");
         }else{
             JOptionPane.showMessageDialog(this, "Ha ocurrido un error la posición no se eliminó!");
@@ -699,11 +832,80 @@ public class FrmTorneo extends javax.swing.JFrame {
         // TODO add your handling code here:
         int fila = tblPosiciones.getSelectedRow();
         int id = (int) tblPosiciones.getValueAt(fila, 0);
-        Posicion posicion = controladorPosicion.findPosicion(id);
+        Posicion posicion = posicionController.findPosicion(id);
         txtIdPosicion.setText("" + posicion.id);
         txtNombrePosicion.setText(posicion.nombre);
         llenarTablaPosiciones();         
     }//GEN-LAST:event_tblPosicionesMouseClicked
+
+    private void btnCrearJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearJugadorActionPerformed
+        // TODO add your handling code here:
+        String nombre = txtNombreJugador.getText();
+        String numero = txtNumeroJugador.getText();
+        Equipo equipo = (Equipo)(cbxEquipoJugador.getSelectedItem());
+        int id_equipo = equipo.id;
+        Posicion posicion = (Posicion)(cbxPosicionJugador.getSelectedItem());
+        int id_posicion = posicion.id;
+        
+        boolean seInserto = jugadorController.insertJugador(nombre, numero, id_equipo, id_posicion);
+        if (seInserto){
+            JOptionPane.showMessageDialog(this,"El jugador se inserto correctamente");
+        }else{
+            JOptionPane.showMessageDialog(this,"Hubo un error al insertar el jugador");
+        }
+        
+        llenarTablaEquipos();
+        
+        
+
+
+    }//GEN-LAST:event_btnCrearJugadorActionPerformed
+
+    private void btnBuscarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarJugadorActionPerformed
+        // TODO add your handling code here:
+        int id = Integer.parseInt(txtIdJugador.getText());
+        Jugador jugador = jugadorController.findJugador(id);
+        txtNombreJugador.setText(jugador.nombre);
+        txtNumeroJugador.setText(jugador.numero);
+        
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cbxEquipoJugador.getModel();
+        for(int i = 0; i < modelo.getSize(); i++){
+            Equipo equipo = (Equipo) modelo.getElementAt(i);
+            if(equipo.id == jugador.id_equipo){
+                cbxEquipoJugador.setSelectedItem(equipo);
+                break;
+            }
+        }
+        
+        DefaultComboBoxModel modelo1 = (DefaultComboBoxModel) cbxPosicionJugador.getModel();
+        for(int i = 0; i < modelo1.getSize(); i++){
+            Posicion posicion = (Posicion) modelo1.getElementAt(i);
+            if(posicion.id == jugador.id_posicion){
+                cbxPosicionJugador.setSelectedItem(posicion);
+                break;
+            }
+        }        
+    }//GEN-LAST:event_btnBuscarJugadorActionPerformed
+
+    private void btnActualizarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarJugadorActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_btnActualizarJugadorActionPerformed
+
+    private void btnEliminarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarJugadorActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_btnEliminarJugadorActionPerformed
+
+    private void tblJugadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblJugadoresMouseClicked
+        // TODO add your handling code here:
+        int fila = tblJugadores.getSelectedRow();
+        int id = (int) tblJugadores.getValueAt(fila, 0);
+        Jugador jugador = jugadorController.findJugador(id);
+        txtIdJugador.setText("" + jugador.id);
+        txtNombreJugador.setText(jugador.nombre);
+        llenarTablaJugadores();              
+    }//GEN-LAST:event_tblJugadoresMouseClicked
 
     /**
      * @param args the command line arguments
@@ -779,7 +981,7 @@ public class FrmTorneo extends javax.swing.JFrame {
         tblEquipos.setModel(modelo);
     }
     public void llenarTablaPosiciones(){
-        ArrayList<Posicion> listaPosiciones = controladorPosicion.SelectPosicion();
+        ArrayList<Posicion> listaPosiciones = posicionController.SelectPosicion();
         int filas = listaPosiciones.size();
         int columnas = 2;
         Object[][] datos = new Object[filas][columnas];
@@ -794,6 +996,27 @@ public class FrmTorneo extends javax.swing.JFrame {
         tblPosiciones.setModel(modelo);
     }
     
+    public void llenarTablaJugadores(){
+        ArrayList<Jugador> listaJugadores = jugadorController.SelectJugador();
+        int filas = listaJugadores.size();
+        int columnas = 4;
+        Object[][] datos = new Object[filas][columnas];
+        int i = 0;
+        for (Jugador jugador : listaJugadores){
+            datos[i][0] = jugador.id;
+            datos[i][1] = jugador.nombre;
+            datos[i][2] = jugador.numero;
+            Equipo equipo = controlador.findEquipo(jugador.id_equipo);
+            datos[i][3] = equipo.nombre;
+            Posicion posicion = posicionController.findPosicion(jugador.id_posicion);
+            datos[i][4] = posicion.nombre;
+            i++;
+        }
+        Object[] encabezados = {"Id", "Nombre", "Numero", "Equipo", "Posicion"};
+        DefaultTableModel modelo = new DefaultTableModel(datos, encabezados);
+        tblJugadores.setModel(modelo);
+    }
+    
     public void llenarComboMunicipios(){
         ArrayList<Municipio> listaMunicipios = controlador.SelectMunicipios();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -803,8 +1026,17 @@ public class FrmTorneo extends javax.swing.JFrame {
         cbxMunicipios.setModel(modelo);
     }
 
+    public void llenarComboEquipos(){
+        ArrayList<Equipo> listaEquipos = controlador.SelectEquipos();
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        for (Equipo equipo : listaEquipos){
+            modelo.addElement(equipo);
+        }
+        cbxMunicipios.setModel(modelo);
+    }
+        
     public void llenarComboPosiciones(){
-        ArrayList<Posicion> listaPosiciones = controladorPosicion.SelectPosicion();
+        ArrayList<Posicion> listaPosiciones = posicionController.SelectPosicion();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         for (Posicion posicion : listaPosiciones){
             modelo.addElement(posicion);
@@ -813,21 +1045,28 @@ public class FrmTorneo extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarEquipo;
+    private javax.swing.JButton btnActualizarJugador;
     private javax.swing.JButton btnActualizarMunicipio;
     private javax.swing.JButton btnActualizarPosicion;
     private javax.swing.JButton btnBuscarEquipo;
+    private javax.swing.JButton btnBuscarJugador;
     private javax.swing.JButton btnBuscarMunicipio;
     private javax.swing.JButton btnBuscarPosicion;
     private javax.swing.JButton btnCrearEquipo;
+    private javax.swing.JButton btnCrearJugador;
     private javax.swing.JButton btnCrearMunicipio;
     private javax.swing.JButton btnCrearPosicion;
     private javax.swing.JButton btnEliminarEquipo;
+    private javax.swing.JButton btnEliminarJugador;
     private javax.swing.JButton btnEliminarMunicipio;
     private javax.swing.JButton btnEliminarPosicion;
+    private javax.swing.JComboBox<String> cbxEquipoJugador;
     private javax.swing.JComboBox<String> cbxMunicipios;
+    private javax.swing.JComboBox<String> cbxPosicionJugador;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPanel jpEquipo;
     private javax.swing.JPanel jpJugador;
     private javax.swing.JPanel jpMunicipo;
@@ -835,22 +1074,31 @@ public class FrmTorneo extends javax.swing.JFrame {
     private javax.swing.JPanel jpPosicion;
     private javax.swing.JTabbedPane jpTorneo;
     private javax.swing.JLabel lbDtEquipo;
+    private javax.swing.JLabel lbEquipoJugador;
     private javax.swing.JLabel lbIdEquipo;
+    private javax.swing.JLabel lbIdJugador;
     private javax.swing.JLabel lbIdMunicipio;
     private javax.swing.JLabel lbIdPosicion;
     private javax.swing.JLabel lbMunicipioEquipo;
     private javax.swing.JLabel lbNombreEquipo;
+    private javax.swing.JLabel lbNombreJugador;
     private javax.swing.JLabel lbNombreMunicipio;
     private javax.swing.JLabel lbNombrePosicion;
+    private javax.swing.JLabel lbNumeroJugador;
+    private javax.swing.JLabel lbPosicionJugador;
     private javax.swing.JTable tblEquipos;
+    private javax.swing.JTable tblJugadores;
     private javax.swing.JTable tblMunicipios;
     private javax.swing.JTable tblPosiciones;
     private javax.swing.JTextField txtDtEquipo;
     private javax.swing.JTextField txtIdEquipo;
+    private javax.swing.JTextField txtIdJugador;
     private javax.swing.JTextField txtIdMunicipio;
     private javax.swing.JTextField txtIdPosicion;
     private javax.swing.JTextField txtNombreEquipo;
+    private javax.swing.JTextField txtNombreJugador;
     private javax.swing.JTextField txtNombreMunicipio;
     private javax.swing.JTextField txtNombrePosicion;
+    private javax.swing.JTextField txtNumeroJugador;
     // End of variables declaration//GEN-END:variables
 }
