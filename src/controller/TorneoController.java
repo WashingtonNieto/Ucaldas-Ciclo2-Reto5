@@ -53,20 +53,18 @@ public class TorneoController {
         return equipo.insert();
     }
     
-    public boolean updateEquipo(int id, String nombre){
+  /*  public boolean updateEquipo(int id, String nombre){
         Equipo equipo = new Equipo();
         equipo.id = id;
         equipo.nombre = nombre;
         return equipo.update();
     }
-    
+ */   
     public boolean deleteEquipo(int id){
         Equipo equipo = new Equipo();
         return equipo.delete(id);
     }      
     
-
-
     public ArrayList<Equipo> SelectEquipos(){
         Equipo equipo = new Equipo();
         return equipo.select();

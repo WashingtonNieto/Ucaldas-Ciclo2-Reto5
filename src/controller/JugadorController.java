@@ -12,7 +12,6 @@ import model.Jugador;
  * @author Wnieto
  */
 public class JugadorController {
-    
     public boolean insertJugador(String nombre, String numero, int id_equipo, int id_posicion){
         Jugador jugador = new Jugador();
         jugador.nombre = nombre;

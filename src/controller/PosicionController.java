@@ -16,26 +16,25 @@ public class PosicionController {
         return posicion.insert();
     }
     
+    public boolean deletePosicion(int id){
+        Posicion posicion = new Posicion();
+        return posicion.delete(id);
+    }      
+    
+    public ArrayList<Posicion> SelectPosiciones(){
+        Posicion posicion = new Posicion();
+        return posicion.select();
+    }    
+    
+    public Posicion findPosicion(int id){
+        Posicion posicion = new Posicion();
+        return posicion.find(id);
+    } 
+    
     public boolean updatePosicion(int id, String nombre){
         Posicion posicion = new Posicion();
         posicion.id = id;
         posicion.nombre = nombre;
         return posicion.update();
     }
-    
-    public boolean deletePosicion(int id){
-        Posicion posicion = new Posicion();
-        return posicion.delete(id);
-    }      
-    
-    public Posicion findPosicion(int id){
-        Posicion posicion = new Posicion();
-        return posicion.find(id);
-    } 
-
-    
-    public ArrayList<Posicion> SelectPosicion(){
-        Posicion posicion = new Posicion();
-        return posicion.select();
-    }    
 }

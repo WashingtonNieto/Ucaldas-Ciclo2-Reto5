@@ -187,7 +187,7 @@ public class FrmTorneo extends javax.swing.JFrame {
                 .addGroup(jpMunicipoLayout.createSequentialGroup()
                     .addGap(43, 43, 43)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(30, Short.MAX_VALUE)))
+                    .addContainerGap(155, Short.MAX_VALUE)))
         );
         jpMunicipoLayout.setVerticalGroup(
             jpMunicipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,12 +204,12 @@ public class FrmTorneo extends javax.swing.JFrame {
                     .addComponent(txtNombreMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnActualizarMunicipio)
                     .addComponent(btnEliminarMunicipio))
-                .addContainerGap(311, Short.MAX_VALUE))
+                .addContainerGap(393, Short.MAX_VALUE))
             .addGroup(jpMunicipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jpMunicipoLayout.createSequentialGroup()
                     .addGap(97, 97, 97)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(121, Short.MAX_VALUE)))
+                    .addContainerGap(209, Short.MAX_VALUE)))
         );
 
         jpTorneo.addTab("Municipio", jpMunicipo);
@@ -330,9 +330,9 @@ public class FrmTorneo extends javax.swing.JFrame {
                 .addGroup(jpEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbMunicipioEquipo)
                     .addComponent(cbxMunicipios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(37, 37, 37)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         jpTorneo.addTab("Equipo", jpEquipo);
@@ -442,7 +442,7 @@ public class FrmTorneo extends javax.swing.JFrame {
         jpPosicion.setLayout(jpPosicionLayout);
         jpPosicionLayout.setHorizontalGroup(
             jpPosicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 584, Short.MAX_VALUE)
+            .addGap(0, 695, Short.MAX_VALUE)
             .addGroup(jpPosicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jpPosicionLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -451,7 +451,7 @@ public class FrmTorneo extends javax.swing.JFrame {
         );
         jpPosicionLayout.setVerticalGroup(
             jpPosicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 399, Short.MAX_VALUE)
+            .addGap(0, 481, Short.MAX_VALUE)
             .addGroup(jpPosicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jpPosicionLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -503,6 +503,12 @@ public class FrmTorneo extends javax.swing.JFrame {
 
         lbPosicionJugador.setText("Posicion");
 
+        cbxPosicionJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxPosicionJugadorActionPerformed(evt);
+            }
+        });
+
         lbNumeroJugador.setText("Numero Jugador");
 
         tblJugadores.setModel(new javax.swing.table.DefaultTableModel(
@@ -513,6 +519,7 @@ public class FrmTorneo extends javax.swing.JFrame {
 
             }
         ));
+        tblJugadores.setShowGrid(true);
         tblJugadores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblJugadoresMouseClicked(evt);
@@ -525,26 +532,17 @@ public class FrmTorneo extends javax.swing.JFrame {
         jpJugadorLayout.setHorizontalGroup(
             jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpJugadorLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(74, 74, 74)
                 .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpJugadorLayout.createSequentialGroup()
-                        .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpJugadorLayout.createSequentialGroup()
-                                .addComponent(lbNumeroJugador)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtNumeroJugador))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpJugadorLayout.createSequentialGroup()
-                                .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbIdJugador)
-                                    .addComponent(lbNombreJugador)
-                                    .addComponent(lbEquipoJugador)
-                                    .addComponent(lbPosicionJugador))
-                                .addGap(18, 18, 18)
-                                .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtIdJugador, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                                    .addComponent(txtNombreJugador, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                                    .addComponent(cbxEquipoJugador, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cbxPosicionJugador, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbNombreJugador)
+                            .addComponent(lbIdJugador))
+                        .addGap(18, 18, 18)
+                        .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtIdJugador)
+                            .addComponent(txtNombreJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(45, 45, 45)
                         .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnActualizarJugador)
@@ -553,25 +551,38 @@ public class FrmTorneo extends javax.swing.JFrame {
                         .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnEliminarJugador)
                             .addComponent(btnBuscarJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(58, Short.MAX_VALUE))
+                    .addGroup(jpJugadorLayout.createSequentialGroup()
+                        .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbNumeroJugador)
+                            .addComponent(lbEquipoJugador)
+                            .addComponent(lbPosicionJugador))
+                        .addGap(18, 18, 18)
+                        .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxPosicionJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxEquipoJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNumeroJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         jpJugadorLayout.setVerticalGroup(
             jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpJugadorLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbIdJugador)
-                    .addComponent(txtIdJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCrearJugador)
-                    .addComponent(btnBuscarJugador))
+                .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpJugadorLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtIdJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCrearJugador)
+                            .addComponent(btnBuscarJugador)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpJugadorLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbIdJugador)))
                 .addGap(18, 18, 18)
                 .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNombreJugador)
                     .addComponent(txtNombreJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnActualizarJugador)
                     .addComponent(btnEliminarJugador))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNumeroJugador)
                     .addComponent(txtNumeroJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -580,11 +591,12 @@ public class FrmTorneo extends javax.swing.JFrame {
                     .addComponent(lbEquipoJugador)
                     .addComponent(cbxEquipoJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbPosicionJugador)
                     .addComponent(cbxPosicionJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         jpTorneo.addTab("Jugador", jpJugador);
@@ -595,15 +607,14 @@ public class FrmTorneo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jpTorneo, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpTorneo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jpTorneo, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jpTorneo))
         );
 
         pack();
@@ -615,11 +626,12 @@ public class FrmTorneo extends javax.swing.JFrame {
     
     private void formWindowOpened(java.awt.event.WindowEvent evt){
         llenarTablaMunicipios();
+        llenarTablaEquipos();
+        llenarTablaPosiciones();
+
         llenarComboMunicipios();
         llenarComboEquipos();
         llenarComboPosiciones();
-        llenarTablaEquipos();
-        llenarTablaPosiciones();
     }
     
     private void tblMunicipiosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMunicipiosMouseClicked
@@ -696,7 +708,7 @@ public class FrmTorneo extends javax.swing.JFrame {
         }
         
         llenarTablaEquipos();
-       
+        llenarComboEquipos();
     }//GEN-LAST:event_btnCrearEquipoActionPerformed
 
     private void cbxMunicipiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMunicipiosActionPerformed
@@ -727,11 +739,12 @@ public class FrmTorneo extends javax.swing.JFrame {
     private void jpTorneoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpTorneoMouseClicked
         // TODO add your handling code here:
         llenarTablaMunicipios();
-        llenarComboMunicipios();
         llenarTablaEquipos();
         llenarTablaPosiciones();
         llenarTablaJugadores();
-
+        llenarComboMunicipios();
+        llenarComboEquipos();
+        llenarComboPosiciones();
 
     }//GEN-LAST:event_jpTorneoMouseClicked
 
@@ -769,7 +782,7 @@ public class FrmTorneo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Hubo un error al actualizar el equipo");
         }
         
-        llenarTablaEquipos();        llenarTablaEquipos();
+        llenarTablaEquipos();        
 
     }//GEN-LAST:event_btnActualizarEquipoActionPerformed
 
@@ -832,8 +845,7 @@ public class FrmTorneo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Ha ocurrido un error la posición no se eliminó!");
         }
         llenarTablaPosiciones();           
-        llenarComboPosiciones();        
-        
+        llenarComboPosiciones();     
     }//GEN-LAST:event_btnEliminarPosicionActionPerformed
 
     private void tblPosicionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPosicionesMouseClicked
@@ -843,9 +855,18 @@ public class FrmTorneo extends javax.swing.JFrame {
         Posicion posicion = posicionController.findPosicion(id);
         txtIdPosicion.setText("" + posicion.id);
         txtNombrePosicion.setText(posicion.nombre);
+
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cbxPosicionJugador.getModel();
+        for(int i = 0; i < modelo.getSize(); i++){
+            if(posicion.id == posicion.id){
+                cbxPosicionJugador.setSelectedItem(posicion);
+                break;
+            }
+        }
         llenarTablaPosiciones();         
     }//GEN-LAST:event_tblPosicionesMouseClicked
 
+    
     private void btnCrearJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearJugadorActionPerformed
         // TODO add your handling code here:
         String nombre = txtNombreJugador.getText();
@@ -862,11 +883,7 @@ public class FrmTorneo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Hubo un error al insertar el jugador");
         }
         
-        llenarTablaEquipos();
-        
-        
-
-
+        llenarTablaJugadores();
     }//GEN-LAST:event_btnCrearJugadorActionPerformed
 
     private void btnBuscarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarJugadorActionPerformed
@@ -897,12 +914,37 @@ public class FrmTorneo extends javax.swing.JFrame {
 
     private void btnActualizarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarJugadorActionPerformed
         // TODO add your handling code here:
+        int id = Integer.parseInt(txtIdJugador.getText());
+        String nombre = txtNombreJugador.getText();
+        String numero = txtNumeroJugador.getText();
+        
+        Equipo equipo = (Equipo)(cbxEquipoJugador.getSelectedItem());
+        int id_equipo = equipo.id;
+        
+        Posicion posicion = (Posicion)(cbxPosicionJugador.getSelectedItem());
+        int id_posicion = posicion.id;
 
+        boolean seActualizo = jugadorController.updateJugador(id, nombre, numero, id_equipo, id_posicion);
+        if (seActualizo){
+            JOptionPane.showMessageDialog(this,"El jugador se actualizó correctamente");
+        }else{
+            JOptionPane.showMessageDialog(this,"Hubo un error al actualizar el jugador");
+        }
+        
+        llenarTablaJugadores();  
     }//GEN-LAST:event_btnActualizarJugadorActionPerformed
 
     private void btnEliminarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarJugadorActionPerformed
         // TODO add your handling code here:
-
+        int id = Integer.parseInt(txtIdJugador.getText());
+        if (jugadorController.deleteJugador(id)){
+            JOptionPane.showMessageDialog(this, "El jugador se eliminó!");
+        }else{
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error el jugador no se eliminó!");
+        }
+        llenarTablaJugadores();
+        llenarComboEquipos();
+        llenarComboPosiciones();
     }//GEN-LAST:event_btnEliminarJugadorActionPerformed
 
     private void tblJugadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblJugadoresMouseClicked
@@ -912,12 +954,25 @@ public class FrmTorneo extends javax.swing.JFrame {
         Jugador jugador = jugadorController.findJugador(id);
         txtIdJugador.setText("" + jugador.id);
         txtNombreJugador.setText(jugador.nombre);
-        llenarTablaJugadores();              
+        txtNumeroJugador.setText(jugador.numero);
+        
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cbxEquipoJugador.getModel();
+        for(int i = 0; i < modelo.getSize(); i++){
+            Equipo equipo = (Equipo) modelo.getElementAt(i);
+            if(jugador.id == jugador.id_equipo){
+                cbxEquipoJugador.setSelectedItem(equipo);
+                break;
+            }
+        }
     }//GEN-LAST:event_tblJugadoresMouseClicked
 
     private void cbxEquipoJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEquipoJugadorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxEquipoJugadorActionPerformed
+
+    private void cbxPosicionJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxPosicionJugadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxPosicionJugadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -993,7 +1048,7 @@ public class FrmTorneo extends javax.swing.JFrame {
         tblEquipos.setModel(modelo);
     }
     public void llenarTablaPosiciones(){
-        ArrayList<Posicion> listaPosiciones = posicionController.SelectPosicion();
+        ArrayList<Posicion> listaPosiciones = posicionController.SelectPosiciones();
         int filas = listaPosiciones.size();
         int columnas = 2;
         Object[][] datos = new Object[filas][columnas];
@@ -1011,7 +1066,7 @@ public class FrmTorneo extends javax.swing.JFrame {
     public void llenarTablaJugadores(){
         ArrayList<Jugador> listaJugadores = jugadorController.SelectJugador();
         int filas = listaJugadores.size();
-        int columnas = 4;
+        int columnas = 5;
         Object[][] datos = new Object[filas][columnas];
         int i = 0;
         for (Jugador jugador : listaJugadores){
@@ -1022,6 +1077,7 @@ public class FrmTorneo extends javax.swing.JFrame {
             datos[i][3] = equipo.nombre;
             Posicion posicion = posicionController.findPosicion(jugador.id_posicion);
             datos[i][4] = posicion.nombre;
+            
             i++;
         }
         Object[] encabezados = {"Id", "Nombre", "Numero", "Equipo", "Posicion"};
@@ -1048,7 +1104,7 @@ public class FrmTorneo extends javax.swing.JFrame {
     }
         
     public void llenarComboPosiciones(){
-        ArrayList<Posicion> listaPosiciones = posicionController.SelectPosicion();
+        ArrayList<Posicion> listaPosiciones = posicionController.SelectPosiciones();
         DefaultComboBoxModel modeloPosiciones = new DefaultComboBoxModel();
         for (Posicion posicion : listaPosiciones){
             modeloPosiciones.addElement(posicion);

@@ -24,7 +24,7 @@ public class Jugador extends DbData{
 
     @Override
     public String toString() {
-        return "" + id + " - " + nombre + " - " + id_equipo;
+        return "" + id + " - " + nombre + " - " + numero + " - " +id_equipo + " - " + id_posicion;
     }
     
     public boolean insert(){
@@ -57,7 +57,7 @@ public class Jugador extends DbData{
         try {
             Class.forName(driver);
             connection = DriverManager.getConnection(url, user, password);
-            String query = "UPDATE jugador SET nombre=?, numero=?, id_equipo=?, id_posicion=? WHERE id_equipo=?";
+            String query = "UPDATE jugador SET nombre=?, numero=?, id_equipo=?, id_posicion=? WHERE id_jugador=?";
             PreparedStatement sentencia = connection.prepareStatement(query);
             sentencia.setString(1,nombre);
             sentencia.setString(2,numero);
@@ -92,7 +92,7 @@ public class Jugador extends DbData{
                 jugador.nombre = rs.getString(2);
                 jugador.numero = rs.getString(3);
                 jugador.id_equipo = rs.getInt(4);
-                jugador.id_posicion = rs.getInt(4);
+                jugador.id_posicion = rs.getInt(5);
                 listaJugadores.add(jugador);
             }
             connection.close();
